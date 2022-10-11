@@ -1,11 +1,11 @@
 nDays=90;
 dt=1/365.0;
-T=nDays*dt;   %µ½ÆÚÊ±¼ä
-S0=100; %ÆÚ³õ¹É¼Û
-K=85;  %ÇÃ¶¨¼Û
-r=0.3; %ÎŞ·çÏÕÀûÂÊ
-sigma=0.3;  %²¨¶¯ÂÊ
-miu=0.1;%Ôö³¤ÂÊ
+T=nDays*dt;   %åˆ°æœŸæ—¶é—´
+S0=100; %æœŸåˆè‚¡ä»·
+K=85;  %æ•²å®šä»·
+r=0.3; %æ— é£é™©åˆ©ç‡
+sigma=0.3;  %æ³¢åŠ¨ç‡
+miu=0.1;%å¢é•¿ç‡
 expTerm=r*dt;
 stddev=sigma*sqrt(dt);
 nTrials=100000;
@@ -19,9 +19,9 @@ for j=1:nTrials
            ep=n(i);
            dW=sqrt(dt)*ep;
            dS=(miu*dt+sigma*dW)*S;
-           S=S+dS;       %µÚnÌìµÄ¹ÉÆ±¼Û¸ñ
+           S=S+dS;       %ç¬¬nå¤©çš„è‚¡ç¥¨ä»·æ ¼
        end
-       S90(j)=S;  %µÚj´ÎÊÔÑé µÚ90ÌìµÄ¼Û¸ñ
+       S90(j)=S;  %ç¬¬jæ¬¡è¯•éªŒ ç¬¬90å¤©çš„ä»·æ ¼
        value=value+max(K-S,0);
 end
 value=value/nTrials;
